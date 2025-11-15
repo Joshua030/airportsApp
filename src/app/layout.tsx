@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import Image from "next/image";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const gothamBlack = localFont({
+  src: [
+    {
+      path: "../../public/fonts/GothamMedium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+  ],
+  variable: "--font-gotham",
 });
 
 export const metadata: Metadata = {
@@ -24,10 +26,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${gothamBlack.variable} antialiased`}>
+        <div className="bg-alfred-gradient relative min-h-screen w-full">
+          <Image
+            src="/images/airport_bg.webp"
+            alt="Aviones comerciales estacionados en la pista de un aeropuerto durante la noche, con hangares iluminados y torres de luz en el fondo"
+            fill
+            className="z-1 object-cover opacity-20"
+          />
+          <div className="bg-alfred-black-blue absolute inset-0"></div>
+          {children}
+        </div>
       </body>
     </html>
   );
