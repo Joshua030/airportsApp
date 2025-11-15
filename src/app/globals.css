@@ -2,6 +2,7 @@
 
 :root {
   /******************Colors *******************************/
+  --color-accent-blue: #006fee;
 
   /*********************Padding ***********************/
   --app-padding-inline: 5.3rem;
@@ -10,7 +11,18 @@
 }
 
 @theme inline {
-  --font-gotham: var(--font-gotham);
+  /******************Fonts *******************************/
+  --font-serif: var(--font-gotham);
+  --font-sans: var(--font-inter);
+
+  /******************Colors *******************************/
+  --color-accent-blue: var(--color-accent-blue);
+}
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
 }
 
 @layer utilities {
@@ -23,6 +35,14 @@
     max-width: 1440px;
   }
 
+  .text-gradient-sky {
+    background: linear-gradient(90deg, #006aff 0%, #00f9ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
   /* Gradient Alfred Black Blue */
   .bg-alfred-black-blue {
     background: linear-gradient(
@@ -31,5 +51,21 @@
       #111e3e 0.01%,
       #020d20 100%
     );
+  }
+
+  .bg-search-button {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 96, 255, 0.8) 0%,
+      rgba(0, 255, 231, 0.8) 100%
+    );
+  }
+
+  .placeholder\:text-accent-blue::placeholder {
+    color: var(--color-accent-blue);
+  }
+
+  .input-box-shadow {
+    box-shadow: 0px 1.82941px 3.65882px rgba(0, 0, 0, 0.05);
   }
 }
