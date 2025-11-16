@@ -1,5 +1,5 @@
 import { Airport } from "@/interfaces";
-import { AirportCard } from "../airpotCard/AirportCard";
+import { AirportCard } from "../airportCard/AirportCard";
 
 export const AirportGrid = ({ airports }: { airports: Airport[] }) => {
   return (
