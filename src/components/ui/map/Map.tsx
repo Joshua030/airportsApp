@@ -31,12 +31,12 @@ export const Map = ({ lat, lng }: { lat: number; lng: number }) => {
     <div className="relative aspect-21/9 h-auto w-full flex-1">
       <MapContainer
         center={[lat, lng]}
-        zoom={13}
-        minZoom={10}
+        zoom={10}
+        minZoom={8}
         scrollWheelZoom={true}
         dragging={false}
         className="h-full"
-        maxZoom={15}
+        maxZoom={10}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

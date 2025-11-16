@@ -3,17 +3,18 @@
 
 import {
   AirportDetailCard,
+  AlertMessage,
   ClockCircle,
   InfoCircle,
   InformationSelectorTabs,
   MapPoint,
   WorldIcon,
 } from "@/components";
+import Loader from "@/components/ui/loader/Loader";
 import { Airport } from "@/interfaces";
 import { useAirportdStore } from "@/stores/airport";
 import dynamic from "next/dynamic";
 import { useParams, usePathname, useSearchParams } from "next/navigation";
-import path from "path";
 import { useEffect } from "react";
 
 const Map = dynamic(
@@ -52,36 +53,48 @@ export default function AirportDetailPage() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { code } = params;
-  // const selectedAirport = useAirportdStore((state) => state.selectedAirport);
-  // const isLoadingAirport = useAirportdStore((state) => state.isLoadingAirport);
-  // const airportError = useAirportdStore((state) => state.airportError);
-  // const fetchAirportByCode = useAirportdStore(
-  //   (state) => state.fetchAirportByCode,
-  // );
+  const selectedAirport = useAirportdStore((state) => state.selectedAirport);
+  const isLoadingAirport = useAirportdStore((state) => state.isLoadingAirport);
+  const airportError = useAirportdStore((state) => state.airportError);
+  const fetchAirportByCode = useAirportdStore(
+    (state) => state.fetchAirportByCode,
+  );
 
-  // useEffect(() => {
-  //   if (code) {
-  //     const getAirport = async () => {
-  //       await fetchAirportByCode(code.toUpperCase());
-  //     };
-  //     getAirport();
-  //   }
-  // }, [code]);
+  useEffect(() => {
+    if (code) {
+      const getAirport = async () => {
+        await fetchAirportByCode(code.toUpperCase());
+      };
+      getAirport();
+    }
+  }, [code]);
 
-  // if (isLoadingAirport) {
-  //   return <p>Loading airport...</p>;
-  // }
+  if (isLoadingAirport) {
+    return <Loader />;
+  }
 
-  // if (airportError) {
-  //   return <p>Error: {airportError}</p>;
-  // }
+  if (airportError) {
+    return (
+      <section className="main-padding flex min-h-screen items-stretch justify-center pt-10">
+        <div className="inner-container flex flex-col gap-8.5">
+          <AlertMessage message="No ha sido posible cargar los datos. Por favor, inténtalo de nuevo más tarde." />
+        </div>
+      </section>
+    );
+  }
 
   // while testing, only show mock for BCN / LEBL
-  const selectedAirport =
-    code === "BCN" || code === "LEBL" ? MOCK_AIRPORT : null;
+  // const selectedAirport =
+  //   code === "BCN" || code === "LEBL" ? MOCK_AIRPORT : null;
 
   if (!selectedAirport) {
-    return <p>No airport found for code: {code}</p>;
+    return (
+      <section className="main-padding flex min-h-screen items-stretch justify-center pt-10">
+        <div className="inner-container flex flex-col gap-8.5">
+          <AlertMessage />
+        </div>
+      </section>
+    );
   }
 
   const activeTab = searchParams.get("tab") ?? TAB_ITEMS[0].id;

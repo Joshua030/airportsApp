@@ -1,10 +1,14 @@
 import { PlaneIcon } from "@/components/icons/PlaneIcon";
 import { Airport } from "@/interfaces";
 import Image from "next/image";
+import Link from "next/link";
 
 export const AirportCard = ({ airport }: { airport: Airport }) => {
   return (
-    <article className="relative flex min-h-[230px] overflow-hidden rounded-lg border border-white bg-white/20 py-8 pr-5 pl-10">
+    <Link
+      href={`/aeropuertos/${airport.city_iata_code}`}
+      className="relative flex min-h-[230px] overflow-hidden rounded-lg border border-white bg-white/20 py-8 pr-5 pl-10"
+    >
       {/* Left: text content */}
       <div className="flex flex-1 flex-col">
         <p className="text-[20px] font-bold text-white">
@@ -34,6 +38,6 @@ export const AirportCard = ({ airport }: { airport: Airport }) => {
           className="object-cover"
         />
       </div>
-    </article>
+    </Link>
   );
 };
