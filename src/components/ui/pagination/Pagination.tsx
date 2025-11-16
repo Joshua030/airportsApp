@@ -43,12 +43,12 @@ export const Pagination = ({ totalPages }: Props) => {
   };
 
   return (
-    <div className="mt-10 mb-32 flex justify-center text-center">
-      <nav aria-label="Page navigation example">
-        <ul className="list-style-none flex">
+    <div className="mt-10 mb-10 flex justify-center text-center">
+      <nav aria-label="Page navigation">
+        <ul className="list-style-none flex gap-3">
           <li className="page-item">
             <Link
-              className="page-link relative block rounded border-0 bg-transparent px-3 py-1.5 text-gray-800 transition-all duration-300 outline-none hover:bg-gray-200 hover:text-gray-800 focus:shadow-none"
+              className="page-link relative block rounded border-0 bg-blue-600 px-3 py-1.5 text-white transition-all duration-300 outline-none hover:bg-gray-200 hover:text-gray-800 focus:shadow-none"
               href={createPageUrl(currentPage - 1)}
             >
               Anterior
@@ -56,12 +56,15 @@ export const Pagination = ({ totalPages }: Props) => {
           </li>
 
           {allPages.map((page, index) => (
-            <li key={page} className="page-item">
+            <li key={page} className="page-item aspect-square">
               <Link
                 className={clsx(
-                  "page-link relative block rounded border-0 px-3 py-1.5 text-gray-800 transition-all duration-300 outline-none hover:bg-gray-200 hover:text-gray-800 focus:shadow-none",
+                  "page-link relative block rounded border-0 px-3 py-1.5 transition-all duration-300 outline-none",
                   {
-                    "bg-blue-600 text-white shadow-sm hover:bg-blue-700 hover:text-white":
+                    "bg-blue-600 text-white hover:bg-gray-200 hover:text-gray-800":
+                      page !== currentPage,
+
+                    "bg-gray-200 text-gray-800 shadow-sm hover:bg-blue-700 hover:text-white":
                       page === currentPage,
                   },
                 )}
@@ -74,7 +77,7 @@ export const Pagination = ({ totalPages }: Props) => {
 
           <li className="page-item">
             <Link
-              className="page-link relative block rounded border-0 bg-transparent px-3 py-1.5 text-gray-800 transition-all duration-300 outline-none hover:bg-gray-200 hover:text-gray-800 focus:shadow-none"
+              className="page-link relative block rounded border-0 bg-blue-600 px-3 py-1.5 text-white transition-all duration-300 outline-none hover:bg-gray-200 hover:text-gray-800 focus:shadow-none"
               href={createPageUrl(currentPage + 1)}
             >
               Siguiente

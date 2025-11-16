@@ -3,6 +3,7 @@
 :root {
   /******************Colors *******************************/
   --color-accent-blue: #006fee;
+  --color-pagination-blue: #0060ff;
 
   /*********************Padding ***********************/
   --app-padding-inline: 5.3rem;
@@ -17,6 +18,7 @@
 
   /******************Colors *******************************/
   --color-accent-blue: var(--color-accent-blue);
+  --color-pagination-blue: var(--color-pagination-blue);
 }
 
 @layer base {
@@ -31,8 +33,8 @@
   }
 
   .inner-container {
-    @apply mx-auto;
-    max-width: 1440px;
+    @apply mx-auto w-full;
+    max-width: 1750px;
   }
 
   .text-gradient-sky {

@@ -7,7 +7,7 @@ export default function Home() {
         <h1 className="text-gradient-sky font-serif text-[89px] font-black">
           SkyConnect Explorer
         </h1>
-        <div className="w-full max-w-[780px]">
+        <div className="w-full">
           <SearchBar redirectTo="aeropuertos" />
         </div>
       </div>
