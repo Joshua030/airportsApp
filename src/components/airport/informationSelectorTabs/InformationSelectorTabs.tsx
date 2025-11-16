@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import clsx from "clsx";
 
 type TabItem = {
   id: string;
@@ -10,7 +11,7 @@ type TabItem = {
 type Props = {
   items: TabItem[];
   activeId: string;
-  basePath: string; // e.g. `/airports/BCN`
+  basePath: string;
 };
 
 export const InformationSelectorTabs = ({
@@ -19,7 +20,7 @@ export const InformationSelectorTabs = ({
   basePath,
 }: Props) => {
   return (
-    <ul className="grid grid-flow-col rounded-lg bg-gray-100 p-1 text-center text-gray-500">
+    <ul className="grid grid-flow-col rounded-lg bg-[#3F495F] p-1 text-center text-gray-500">
       {items.map((item) => {
         const isActive = item.id === activeId;
 
@@ -28,12 +29,12 @@ export const InformationSelectorTabs = ({
             <Link
               href={`${basePath}?tab=${item.id}`}
               scroll={false}
-              className={[
-                "flex justify-center rounded-lg py-4",
+              className={clsx(
+                "flex justify-center rounded-lg py-4 text-[22px] font-semibold transition-colors duration-300",
                 isActive
-                  ? "bg-white text-indigo-900 shadow"
-                  : "text-gray-500 hover:text-indigo-900",
-              ].join(" ")}
+                  ? "bg-pagination-blue text-white shadow"
+                  : "text-[#A2A2A2] hover:text-white",
+              )}
             >
               {item.label}
             </Link>

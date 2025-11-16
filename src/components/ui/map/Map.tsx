@@ -1,13 +1,22 @@
 "use client";
 
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
-import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { useEffect, useState } from "react";
+import type L from "leaflet";
 
 export const Map = ({ lat, lng }: { lat: number; lng: number }) => {
-  if (typeof window === "undefined") return null;
+  const [leaflet, setLeaflet] = useState<typeof L | null>(null);
 
-  const airplaneIcon = L.divIcon({
+  useEffect(() => {
+    import("leaflet").then((module) => {
+      setLeaflet(module.default);
+    });
+  }, []);
+
+  if (typeof window === "undefined" || !leaflet) return null;
+
+  const airplaneIcon = leaflet.divIcon({
     html: `
     <svg width="40" height="40" viewBox="0 0 24 24" fill="blue">
       <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9L2 14v2l8-2.5V19l-2 1.5V22l4-1 4 1v-1.5L13 19v-5.5l8 2.5z"/>
@@ -19,10 +28,7 @@ export const Map = ({ lat, lng }: { lat: number; lng: number }) => {
   });
 
   return (
-    <div
-      className="relative aspect-21/9 h-auto w-full flex-1"
-      suppressHydrationWarning
-    >
+    <div className="relative aspect-21/9 h-auto w-full flex-1">
       <MapContainer
         center={[lat, lng]}
         zoom={13}
@@ -30,6 +36,7 @@ export const Map = ({ lat, lng }: { lat: number; lng: number }) => {
         scrollWheelZoom={true}
         dragging={false}
         className="h-full"
+        maxZoom={15}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

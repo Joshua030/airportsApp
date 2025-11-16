@@ -87,7 +87,7 @@ export default function AirportDetailPage() {
   const activeTab = searchParams.get("tab") ?? TAB_ITEMS[0].id;
 
   return (
-    <section className="main-padding flex min-h-screen items-stretch justify-center pt-20">
+    <section className="main-padding flex min-h-screen items-stretch justify-center pt-10">
       <div className="inner-container flex flex-col gap-8.5">
         <h1 className="text-gradient-sky font-black` text-center font-serif text-[89px]">
           {selectedAirport.airport_name}

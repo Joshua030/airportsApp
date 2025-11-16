@@ -24,6 +24,7 @@
 @layer base {
   body {
     @apply font-sans;
+    scrollbar-gutter: stable;
   }
 }
 
