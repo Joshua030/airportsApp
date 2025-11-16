@@ -10,12 +10,12 @@ export const SearchHistoryPanel = () => {
 
   if (searchHistory.length === 0) return null;
   return (
-    <div className="relative flex min-h-[230px] overflow-hidden rounded-lg border border-white bg-white/20 py-8 pr-5 pl-10">
+    <div className="relative flex min-h-[230px] gap-2 overflow-hidden rounded-lg border border-white bg-white/20 py-8 pr-3 pl-5 sm:gap-0 sm:pr-5 sm:pl-10">
       {/* LEFT: search history */}
       <div className="flex flex-1 flex-col gap-4">
-        <div className="flex items-center gap-4">
+        <div className="z-2 flex items-center gap-4">
           <InfoCircle />
-          <p className="mt-1 text-[20px] font-semibold text-white">
+          <p className="mt-1 text-lg font-semibold text-white sm:text-[20px]">
             Búsquedas recientes
           </p>
         </div>
@@ -39,9 +39,9 @@ export const SearchHistoryPanel = () => {
         <PlaneIcon />
       </div>
 
-      <div className="absolute top-0 right-0 h-full w-[45%] bg-[linear-gradient(90deg,#3F495F_0%,#0E1934_74%)] opacity-90" />
+      <div className="absolute top-0 right-0 hidden h-full w-[45%] bg-[linear-gradient(90deg,#3F495F_0%,#0E1934_74%)] opacity-90 sm:block" />
 
-      <div className="absolute top-0 right-0 -z-1 h-full w-[45%]">
+      <div className="absolute top-0 right-0 -z-1 hidden h-full w-[45%] sm:block">
         <Image
           src={"/images/plane_bg.webp"}
           alt="Imagen de avion despegando"

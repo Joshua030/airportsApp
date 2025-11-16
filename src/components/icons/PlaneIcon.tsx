@@ -1,4 +1,6 @@
-export const PlaneIcon = () => {
+import { twMerge } from "tailwind-merge";
+
+export const PlaneIcon = ({ className = "" }: { className?: string }) => {
   return (
     <svg
       width="55"
@@ -8,7 +10,13 @@ export const PlaneIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <rect width="55" height="55" fill="url(#pattern0_1_57)" />
+      <rect
+        className={twMerge(
+          "aspect-square h-10 w-10 lg:h-14 lg:w-14",
+          className,
+        )}
+        fill="url(#pattern0_1_57)"
+      />
       <defs>
         <pattern
           id="pattern0_1_57"

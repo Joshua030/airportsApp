@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
+import AOSInitializer from "@/components/animations/AOSInitializer";
 
 const gothamBlack = localFont({
   src: [
@@ -38,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${gothamBlack.variable} ${inter.variable} antialiased`}>
+        <AOSInitializer />
         <div className="bg-alfred-gradient relative w-full">
           <Image
             src="/images/airport_bg.webp"

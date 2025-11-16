@@ -20,56 +20,56 @@ export default async function AirportsPage({
 
   const selectedPage = page ? parseInt(page) : 1;
 
-  const { data, totalPages } = await getAirportsByPage({
-    page: selectedPage,
-    searchValue,
-  });
+  // const { data, totalPages } = await getAirportsByPage({
+  //   page: selectedPage,
+  //   searchValue,
+  // });
 
   // Inline mock for testing
 
-  // const data = [
-  //   {
-  //     id: "5524551",
-  //     gmt: "-10",
-  //     airport_id: "1",
-  //     iata_code: "AAA",
-  //     city_iata_code: "AAA",
-  //     icao_code: "NTGA",
-  //     country_iso2: "PF",
-  //     geoname_id: "6947726",
-  //     latitude: "-17.05",
-  //     longitude: "-145.41667",
-  //     airport_name: "Anaa",
-  //     country_name: "French Polynesia",
-  //     phone_number: null,
-  //     timezone: "Pacific/Tahiti",
-  //   },
-  //   {
-  //     id: "5524552",
-  //     gmt: "-10",
-  //     airport_id: "1",
-  //     iata_code: "AAA",
-  //     city_iata_code: "AAA",
-  //     icao_code: "NTGA",
-  //     country_iso2: "PF",
-  //     geoname_id: "6947726",
-  //     latitude: "-17.05",
-  //     longitude: "-145.41667",
-  //     airport_name: "Anaa",
-  //     country_name: "French Polynesia",
-  //     phone_number: null,
-  //     timezone: "Pacific/Tahiti",
-  //   },
-  // ];
+  const data = [
+    {
+      id: "5524551",
+      gmt: "-10",
+      airport_id: "1",
+      iata_code: "AAA",
+      city_iata_code: "AAA",
+      icao_code: "NTGA",
+      country_iso2: "PF",
+      geoname_id: "6947726",
+      latitude: "-17.05",
+      longitude: "-145.41667",
+      airport_name: "Anaa",
+      country_name: "French Polynesia",
+      phone_number: null,
+      timezone: "Pacific/Tahiti",
+    },
+    {
+      id: "5524552",
+      gmt: "-10",
+      airport_id: "1",
+      iata_code: "AAA",
+      city_iata_code: "AAA",
+      icao_code: "NTGA",
+      country_iso2: "PF",
+      geoname_id: "6947726",
+      latitude: "-17.05",
+      longitude: "-145.41667",
+      airport_name: "Anaa",
+      country_name: "French Polynesia",
+      phone_number: null,
+      timezone: "Pacific/Tahiti",
+    },
+  ];
 
-  // const totalPages = 1; // mock pages
+  const totalPages = 10; // mock pages
 
   return (
     <section className="main-padding flex min-h-screen items-stretch justify-center pt-20">
       <div className="inner-container flex flex-col gap-11">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col items-center justify-between gap-6 sm:gap-10 2xl:flex-row">
           <div className="w-full">
-            <h1 className="text-gradient-sky font-serif text-[50px] font-black">
+            <h1 className="text-gradient-sky text-center font-serif text-4xl font-black sm:text-left sm:text-[50px]">
               <Link href="/">SkyConnect Explorer</Link>
             </h1>
           </div>

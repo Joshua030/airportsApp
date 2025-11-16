@@ -56,7 +56,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       <div
         className={clsx(
           "flex items-center gap-8",
-          direction === "column" ? "flex-col" : "flex-row",
+          direction === "column" ? "flex-col" : "flex-col sm:flex-row",
         )}
       >
         <input
@@ -64,7 +64,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           value={value}
           placeholder={placeholder}
           onChange={(e) => setValue(e.target.value)}
-          className="placeholder:text-accent-blue w-full max-w-[780px] rounded-full bg-white px-6 py-4 text-2xl font-light placeholder:text-[20px] placeholder:font-normal"
+          className="placeholder:text-accent-blue w-full max-w-[780px] rounded-full bg-white px-6 py-4 text-sm font-light placeholder:text-sm placeholder:font-normal sm:text-2xl sm:placeholder:text-[20px]"
         />
 
         <button

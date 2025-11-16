@@ -20,27 +20,29 @@ export const InformationSelectorTabs = ({
   basePath,
 }: Props) => {
   return (
-    <ul className="grid grid-flow-col rounded-lg bg-[#3F495F] p-1 text-center text-gray-500">
-      {items.map((item) => {
-        const isActive = item.id === activeId;
+    <div className="overflow-x-scroll sm:overflow-x-auto">
+      <ul className="grid w-[1000px] grid-flow-col rounded-lg bg-[#3F495F] p-1 text-center text-gray-500 sm:w-auto">
+        {items.map((item) => {
+          const isActive = item.id === activeId;
 
-        return (
-          <li key={item.id}>
-            <Link
-              href={`${basePath}?tab=${item.id}`}
-              scroll={false}
-              className={clsx(
-                "flex justify-center rounded-lg py-4 text-[22px] font-semibold transition-colors duration-300",
-                isActive
-                  ? "bg-pagination-blue text-white shadow"
-                  : "text-[#A2A2A2] hover:text-white",
-              )}
-            >
-              {item.label}
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
+          return (
+            <li key={item.id}>
+              <Link
+                href={`${basePath}?tab=${item.id}`}
+                scroll={false}
+                className={clsx(
+                  "flex justify-center rounded-lg py-4 text-[22px] font-semibold transition-colors duration-300",
+                  isActive
+                    ? "bg-pagination-blue text-white shadow"
+                    : "text-[#A2A2A2] hover:text-white",
+                )}
+              >
+                {item.label}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 };

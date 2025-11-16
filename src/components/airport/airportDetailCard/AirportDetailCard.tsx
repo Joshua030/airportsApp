@@ -23,14 +23,14 @@ export const AirportDetailCard = ({
           <div className="flex items-center gap-6">
             {icon && <span>{icon}</span>}
 
-            <p className="text-gradient-sky inline font-serif text-[40px] font-black">
+            <p className="text-gradient-sky inline font-serif text-2xl font-black sm:text-[40px]">
               {title}
             </p>
           </div>
         )}
         <div>
           {airport.iata_code && (
-            <div className="text-[30px] text-white">
+            <div className="text-lg text-white sm:text-[30px]">
               <strong>Código IATA: </strong>
               <p className="inline">
                 &nbsp;
@@ -40,7 +40,7 @@ export const AirportDetailCard = ({
           )}
 
           {airport.icao_code && (
-            <div className="text-[30px] text-white">
+            <div className="text-lg text-white sm:text-[30px]">
               <strong>Código ICAO: </strong>
               <p className="inline">
                 &nbsp;
@@ -50,7 +50,7 @@ export const AirportDetailCard = ({
           )}
 
           {airport.country_name && (
-            <div className="text-[30px] text-white">
+            <div className="text-lg text-white sm:text-[30px]">
               <strong>País: </strong>
               <p className="inline">
                 &nbsp;
@@ -60,7 +60,7 @@ export const AirportDetailCard = ({
           )}
 
           {airport.city_iata_code && (
-            <div className="text-[30px] text-white">
+            <div className="text-lg text-white sm:text-[30px]">
               <strong>Ciudad IATA: </strong>
               <p className="inline">
                 &nbsp;
@@ -70,7 +70,7 @@ export const AirportDetailCard = ({
           )}
 
           {airport.phone_number && (
-            <div className="text-[30px] text-white">
+            <div className="text-lg text-white sm:text-[30px]">
               <strong>Teléfono: </strong>
               <p className="inline">
                 &nbsp;
@@ -80,7 +80,7 @@ export const AirportDetailCard = ({
           )}
 
           {airport.latitude && (
-            <div className="text-[30px] text-white">
+            <div className="text-lg text-white sm:text-[30px]">
               <strong>Latitud:: </strong>
               <p className="inline">
                 &nbsp;
@@ -90,7 +90,7 @@ export const AirportDetailCard = ({
           )}
 
           {airport.longitude && (
-            <div className="text-[30px] text-white">
+            <div className="text-lg text-white sm:text-[30px]">
               <strong>Longitud: </strong>
               <p className="inline">
                 &nbsp;
@@ -100,7 +100,7 @@ export const AirportDetailCard = ({
           )}
 
           {airport.geoname_id && (
-            <div className="text-[30px] text-white">
+            <div className="text-lg text-white sm:text-[30px]">
               <strong>ID Geoname:: </strong>
               <p className="inline">
                 &nbsp;
@@ -110,7 +110,7 @@ export const AirportDetailCard = ({
           )}
 
           {airport.timezone && !showTime && (
-            <div className="text-[30px] text-white">
+            <div className="text-lg text-white sm:text-[30px]">
               <strong>Zona Horaria: </strong>
               <p className="inline">
                 &nbsp;
@@ -120,7 +120,7 @@ export const AirportDetailCard = ({
           )}
 
           {airport.gmt && !showTime && (
-            <div className="text-[30px] text-white">
+            <div className="text-lg text-white sm:text-[30px]">
               <strong>GMT: </strong>
               <p className="inline">
                 &nbsp;
@@ -130,7 +130,7 @@ export const AirportDetailCard = ({
           )}
 
           {airport.gmt && airport.timezone && showTime && (
-            <div className="text-[30px] text-white">
+            <div className="text-lg text-white sm:text-[30px]">
               <p className="inline">
                 &nbsp;
                 {getAirportLocalTime(airport) ?? "No disponible"}
@@ -139,9 +139,9 @@ export const AirportDetailCard = ({
           )}
         </div>
       </div>
-      <div className="absolute top-0 right-0 h-full w-[45%] bg-[linear-gradient(90deg,#3F495F_0%,#0E1934_74%)] opacity-90" />
+      <div className="absolute top-0 right-0 hidden h-full w-[45%] bg-[linear-gradient(90deg,#3F495F_0%,#0E1934_74%)] opacity-90 lg:block" />
 
-      <div className="absolute top-0 right-0 -z-1 h-full w-[45%]">
+      <div className="absolute top-0 right-0 -z-1 hidden h-full w-[45%] lg:block">
         <Image
           src={"/images/plane_bg.webp"}
           alt="Imagen de avion despegando"

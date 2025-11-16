@@ -24,22 +24,22 @@ const Map = dynamic(
   },
 );
 
-// const MOCK_AIRPORT: Airport = {
-//   id: "5535418",
-//   gmt: "1",
-//   airport_id: "580",
-//   iata_code: "BCN",
-//   city_iata_code: "BCN",
-//   icao_code: "LEBL",
-//   country_iso2: "ES",
-//   geoname_id: "3128760",
-//   latitude: "41.30303",
-//   longitude: "2.07593",
-//   airport_name: "El Prat De Llobregat",
-//   country_name: "Spain",
-//   phone_number: "902 404 704",
-//   timezone: "Europe/Madrid",
-// };
+const MOCK_AIRPORT: Airport = {
+  id: "5535418",
+  gmt: "1",
+  airport_id: "580",
+  iata_code: "BCN",
+  city_iata_code: "BCN",
+  icao_code: "LEBL",
+  country_iso2: "ES",
+  geoname_id: "3128760",
+  latitude: "41.30303",
+  longitude: "2.07593",
+  airport_name: "El Prat De Llobregat",
+  country_name: "Spain",
+  phone_number: "902 404 704",
+  timezone: "Europe/Madrid",
+};
 
 const TAB_ITEMS = [
   { id: "general", label: "General" },
@@ -53,39 +53,39 @@ export default function AirportDetailPage() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { code } = params;
-  const selectedAirport = useAirportdStore((state) => state.selectedAirport);
-  const isLoadingAirport = useAirportdStore((state) => state.isLoadingAirport);
-  const airportError = useAirportdStore((state) => state.airportError);
-  const fetchAirportByCode = useAirportdStore(
-    (state) => state.fetchAirportByCode,
-  );
+  // const selectedAirport = useAirportdStore((state) => state.selectedAirport);
+  // const isLoadingAirport = useAirportdStore((state) => state.isLoadingAirport);
+  // const airportError = useAirportdStore((state) => state.airportError);
+  // const fetchAirportByCode = useAirportdStore(
+  //   (state) => state.fetchAirportByCode,
+  // );
 
-  useEffect(() => {
-    if (code) {
-      const getAirport = async () => {
-        await fetchAirportByCode(code.toUpperCase());
-      };
-      getAirport();
-    }
-  }, [code]);
+  // useEffect(() => {
+  //   if (code) {
+  //     const getAirport = async () => {
+  //       await fetchAirportByCode(code.toUpperCase());
+  //     };
+  //     getAirport();
+  //   }
+  // }, [code]);
 
-  if (isLoadingAirport) {
-    return <Loader />;
-  }
+  // if (isLoadingAirport) {
+  //   return <Loader />;
+  // }
 
-  if (airportError) {
-    return (
-      <section className="main-padding flex min-h-screen items-stretch justify-center pt-10">
-        <div className="inner-container flex flex-col gap-8.5">
-          <AlertMessage message="No ha sido posible cargar los datos. Por favor, inténtalo de nuevo más tarde." />
-        </div>
-      </section>
-    );
-  }
+  // if (airportError) {
+  //   return (
+  //     <section className="main-padding flex min-h-screen items-stretch justify-center pt-10">
+  //       <div className="inner-container flex flex-col gap-8.5">
+  //         <AlertMessage message="No ha sido posible cargar los datos. Por favor, inténtalo de nuevo más tarde." />
+  //       </div>
+  //     </section>
+  //   );
+  // }
 
   // while testing, only show mock for BCN / LEBL
-  // const selectedAirport =
-  //   code === "BCN" || code === "LEBL" ? MOCK_AIRPORT : null;
+  const selectedAirport =
+    code === "BCN" || code === "LEBL" ? MOCK_AIRPORT : null;
 
   if (!selectedAirport) {
     return (
@@ -101,8 +101,8 @@ export default function AirportDetailPage() {
 
   return (
     <section className="main-padding flex min-h-screen items-stretch justify-center pt-10">
-      <div className="inner-container flex flex-col gap-8.5">
-        <h1 className="text-gradient-sky font-black` text-center font-serif text-[89px]">
+      <div className="inner-container flex flex-col gap-8.5 overflow-hidden">
+        <h1 className="text-gradient-sky text-center font-serif text-4xl font-black sm:text-[89px]">
           {selectedAirport.airport_name}
         </h1>
         <InformationSelectorTabs

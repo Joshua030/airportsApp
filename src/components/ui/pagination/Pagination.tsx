@@ -41,7 +41,7 @@ export const Pagination = ({ totalPages }: Props) => {
   return (
     <div className="mt-10 mb-10 flex justify-center text-center">
       <nav aria-label="Page navigation">
-        <ul className="list-style-none flex gap-3">
+        <ul className="list-style-none flex flex-wrap justify-center gap-3">
           {/*  ANTERIOR */}
           <li className="page-item">
             <Link

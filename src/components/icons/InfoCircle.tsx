@@ -1,8 +1,9 @@
-export const InfoCircle = () => {
+import { twMerge } from "tailwind-merge";
+
+export const InfoCircle = ({ className = "" }: { className?: string }) => {
   return (
     <svg
-      width="55"
-      height="55"
+      className={twMerge("h-auto w-8 md:w-10 lg:w-14", className)}
       viewBox="0 0 55 55"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

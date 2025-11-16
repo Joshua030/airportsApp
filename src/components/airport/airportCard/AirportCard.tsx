@@ -7,7 +7,7 @@ export const AirportCard = ({ airport }: { airport: Airport }) => {
   return (
     <Link
       href={`/aeropuertos/${airport.city_iata_code}`}
-      className="relative flex min-h-[230px] overflow-hidden rounded-lg border border-white bg-white/20 py-8 pr-5 pl-10"
+      className="fade-in relative flex min-h-[230px] overflow-hidden rounded-lg border border-white bg-white/20 py-8 pr-5 pl-10 transition-all duration-300 ease-in"
     >
       {/* Left: text content */}
       <div className="flex flex-1 flex-col">
