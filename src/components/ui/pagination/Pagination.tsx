@@ -56,7 +56,7 @@ export const Pagination = ({ totalPages }: Props) => {
           </li>
 
           {allPages.map((page, index) => (
-            <li key={page} className="page-item aspect-square">
+            <li key={`${page}-${index}`} className="page-item aspect-square">
               <Link
                 className={clsx(
                   "page-link relative block rounded border-0 px-3 py-1.5 transition-all duration-300 outline-none",

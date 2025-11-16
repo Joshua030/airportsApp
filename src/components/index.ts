@@ -1,4 +1,11 @@
 export * from "./ui/searchBar/SearchBar";
 export { MagnifyingGlass } from "./icons/MagnifyingGlass";
 export { PlaneIcon } from "./icons/PlaneIcon";
+export { InfoCircle } from "./icons/InfoCircle";
+export { MapPoint } from "./icons/MapPoint";
+export { WorldIcon } from "./icons/WorldIcon";
+export { ClockCircle } from "./icons/ClockCircle";
 export * from "./ui/pagination/Pagination";
+export * from "./ui/map/Map";
+export * from "./airport/informationSelectorTabs/InformationSelectorTabs";
+export * from "./airport/airportDetailCard/AirportDetailCard";
