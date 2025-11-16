@@ -1,4 +1,5 @@
 import { SearchBar } from "@/components";
+import { SearchHistoryPanel } from "@/components/ui/searchHistoryPanel/SearchHistoryPanel";
 
 export default function Home() {
   return (
@@ -9,6 +10,9 @@ export default function Home() {
         </h1>
         <div className="w-full">
           <SearchBar redirectTo="aeropuertos" />
+          <div className="mx-auto mt-4 max-w-[780px]">
+            <SearchHistoryPanel />
+          </div>
         </div>
       </div>
     </section>

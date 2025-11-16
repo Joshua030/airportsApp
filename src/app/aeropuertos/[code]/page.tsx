@@ -12,7 +12,7 @@ import {
 } from "@/components";
 import Loader from "@/components/ui/loader/Loader";
 import { Airport } from "@/interfaces";
-import { useAirportdStore } from "@/stores/airport";
+import { useAirportdStore } from "@/stores";
 import dynamic from "next/dynamic";
 import { useParams, usePathname, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
@@ -24,22 +24,22 @@ const Map = dynamic(
   },
 );
 
-const MOCK_AIRPORT: Airport = {
-  id: "5535418",
-  gmt: "1",
-  airport_id: "580",
-  iata_code: "BCN",
-  city_iata_code: "BCN",
-  icao_code: "LEBL",
-  country_iso2: "ES",
-  geoname_id: "3128760",
-  latitude: "41.30303",
-  longitude: "2.07593",
-  airport_name: "El Prat De Llobregat",
-  country_name: "Spain",
-  phone_number: "902 404 704",
-  timezone: "Europe/Madrid",
-};
+// const MOCK_AIRPORT: Airport = {
+//   id: "5535418",
+//   gmt: "1",
+//   airport_id: "580",
+//   iata_code: "BCN",
+//   city_iata_code: "BCN",
+//   icao_code: "LEBL",
+//   country_iso2: "ES",
+//   geoname_id: "3128760",
+//   latitude: "41.30303",
+//   longitude: "2.07593",
+//   airport_name: "El Prat De Llobregat",
+//   country_name: "Spain",
+//   phone_number: "902 404 704",
+//   timezone: "Europe/Madrid",
+// };
 
 const TAB_ITEMS = [
   { id: "general", label: "General" },

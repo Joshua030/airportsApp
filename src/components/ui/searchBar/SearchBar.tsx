@@ -4,6 +4,7 @@ import { MagnifyingGlass } from "@/components/icons/MagnifyingGlass";
 import { useRouter } from "next/navigation";
 import React, { useState, FormEvent } from "react";
 import clsx from "clsx";
+import { useAirportdStore } from "@/stores";
 
 interface SearchBarProps {
   initialValue?: string;
@@ -28,6 +29,9 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   const router = useRouter();
   const [value, setValue] = useState(initialValue);
+  const addToSearchHistory = useAirportdStore(
+    (state) => state.addToSearchHistory,
+  );
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -39,7 +43,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 
       const query = params.toString();
       const url = query ? `${redirectTo}?${query}` : redirectTo;
-
+      addToSearchHistory(trimmed);
       router.push(url);
     }
 
