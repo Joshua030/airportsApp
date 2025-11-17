@@ -13,7 +13,6 @@ export async function GET(
 ) {
   const routeParams = await params;
   const { code } = routeParams;
-  console.log(code, "code");
 
   const url = `${api.airports.list}&iata_code=${encodeURIComponent(code)}`;
 

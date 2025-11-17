@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Airports App
 
-First, run the development server:
+Aplicación web para buscar y visualizar información de aeropuertos utilizando la API de AviationStack.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Características
+
+* Búsqueda de aeropuertos por nombre exacto o código IATA
+* Visualización de información detallada de aeropuertos
+* Mapa interactivo con ubicación de aeropuertos
+* Animaciones suaves con AOS
+* Gestión de estado con Zustand
+* Interfaz responsive con Tailwind CSS
+
+
+# Instalacion
+
+1. clonar el repositorio
+```
+git clone https://github.com/Joshua030/airportsApp.git
+cd airportsApp
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instalar dependencias
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+3. Renombrar el archivo .env.example a .env
+4. Rmeplazar las variables de entorno, la variable API_ACCESS_KEY debe ser generada en [Solicitar api key]( https://aviationstack.com/) 
 
-## Learn More
+5. Ejecutar el comando ``` npm run dev ```
 
-To learn more about Next.js, take a look at the following resources:
+6. Open your browser and navigate to [Abrir web](http://localhost:3000)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Testing
 
-## Deploy on Vercel
+1. para correr el test ``npm test`` or ``` npm test AirportGrid.test ``` 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Tecnologias usadas
+
+* Next.js
+* TypeScript
+* CSS / Tailwind (si aplica)
+* Jest + React Testing Library
+* zustand
+
+# Paquetes adicionales
+
+* AOS
+* clsx
+* leaflet
+* tailwind-merge
+
+# Endpoints api
+
+* Listar aeropuertos: http://api.aviationstack.com/v1/airports [GET]
+*  Buscar por código IATA: http://api.aviationstack.com/v1/airports?access_key={{API_ACCESS_KEY}}&iata_code={iatacode} [GET]
+* Buscar por nombre: http://api.aviationstack.com/v1/airports?access_key={{API_ACCESS_KEY}}&airport_name={{airport_name}} [GET]
+
+
+# Notas
+
+* La API no permite búsquedas parciales (solo exactas). La única flexibilidad aplicada desde el frontend es normalizar mayúsculas/minúsculas y espacios. ya que la opción search de la API solo está disponible en la versión de pago.
+* No se realizó el adicional  de modo oscuro, ya que se considera que la paleta de colores actual refleja cómo se vería en esa versión.
+* Se deja con nocache en las requests. En producción se podría revalidar cada 24h o mas, ya que los aeropuertos no cambian con frecuencia.
+
+
+# Produccion
+* Para general el build:
+
+``` npm run build ```
+
+# Stage
+
+# Autor
+** Jose Luis
+[LInk Proyecto]( https://github.com/Joshua030/airportsApp)

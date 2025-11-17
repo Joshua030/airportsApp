@@ -4,6 +4,7 @@ import { InfoCircle } from "@/components/icons/InfoCircle";
 import { PlaneIcon } from "@/components/icons/PlaneIcon";
 import { useAirportdStore } from "@/stores";
 import Image from "next/image";
+import Link from "next/link";
 
 export const SearchHistoryPanel = () => {
   const searchHistory = useAirportdStore((s) => s.searchHistory);
@@ -27,7 +28,7 @@ export const SearchHistoryPanel = () => {
                 key={term}
                 className="cursor-pointer rounded-full bg-white/20 px-4 py-1 text-[16px] text-white transition hover:bg-white/30"
               >
-                {term}
+                <Link href={`/aeropuertos/?s=${term}`}>{term}</Link>
               </li>
             ))}
           </ul>

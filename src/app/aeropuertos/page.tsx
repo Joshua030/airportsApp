@@ -20,14 +20,14 @@ export default async function AirportsPage({
 
   const selectedPage = page ? parseInt(page) : 1;
 
-  // const { data, totalPages } = await getAirportsByPage({
-  //   page: selectedPage,
-  //   searchValue,
-  // });
+  const { data, totalPages } = await getAirportsByPage({
+    page: selectedPage,
+    searchValue,
+  });
 
   // Inline mock for testing
 
-  const data = [
+  /*   const data = [
     {
       id: "5524551",
       gmt: "-10",
@@ -62,7 +62,7 @@ export default async function AirportsPage({
     },
   ];
 
-  const totalPages = 10; // mock pages
+  const totalPages = 10; // mock pages */
 
   return (
     <section className="main-padding flex min-h-screen items-stretch justify-center pt-20">
