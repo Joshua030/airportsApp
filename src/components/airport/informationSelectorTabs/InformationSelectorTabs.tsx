@@ -20,7 +20,11 @@ export const InformationSelectorTabs = ({
   basePath,
 }: Props) => {
   return (
-    <div className="overflow-x-scroll sm:overflow-x-auto">
+    <div
+      className="overflow-x-scroll sm:overflow-x-auto"
+      data-aos="zoom-in"
+      data-aos-delay="400"
+    >
       <ul className="grid w-[1000px] grid-flow-col rounded-lg bg-[#3F495F] p-1 text-center text-gray-500 sm:w-auto">
         {items.map((item) => {
           const isActive = item.id === activeId;

@@ -102,7 +102,11 @@ export default function AirportDetailPage() {
   return (
     <section className="main-padding flex min-h-screen items-stretch justify-center pt-10">
       <div className="inner-container flex flex-col gap-8.5 overflow-hidden">
-        <h1 className="text-gradient-sky text-center font-serif text-4xl font-black sm:text-[89px]">
+        <h1
+          className="text-gradient-sky text-center font-serif text-4xl font-black sm:text-[89px]"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
           {selectedAirport.airport_name}
         </h1>
         <InformationSelectorTabs
@@ -110,60 +114,61 @@ export default function AirportDetailPage() {
           activeId={activeTab}
           basePath={pathname}
         />
-
-        {activeTab === "general" && (
-          <AirportDetailCard
-            airport={{
-              iata_code: selectedAirport.iata_code,
-              icao_code: selectedAirport.icao_code,
-              country_name: selectedAirport.country_name,
-              city_iata_code: selectedAirport.city_iata_code,
-              phone_number: selectedAirport.phone_number,
-            }}
-            title="Información General"
-            icon={<InfoCircle />}
-          />
-        )}
-
-        {activeTab === "ubicacion" && (
-          <div className="mb-20 flex flex-col gap-10">
+        <div data-aos="fade-up" data-aos-delay="400">
+          {activeTab === "general" && (
             <AirportDetailCard
               airport={{
-                latitude: selectedAirport.latitude,
-                longitude: selectedAirport.longitude,
-                geoname_id: selectedAirport.geoname_id,
+                iata_code: selectedAirport.iata_code,
+                icao_code: selectedAirport.icao_code,
+                country_name: selectedAirport.country_name,
+                city_iata_code: selectedAirport.city_iata_code,
+                phone_number: selectedAirport.phone_number,
               }}
-              title="Ubicación"
-              icon={<MapPoint />}
+              title="Información General"
+              icon={<InfoCircle />}
             />
-            <Map
-              lat={Number(selectedAirport.latitude)}
-              lng={Number(selectedAirport.longitude)}
-            />
-          </div>
-        )}
+          )}
 
-        {activeTab === "zona-horaria" && (
-          <div className="flex flex-col gap-10">
-            <AirportDetailCard
-              airport={{
-                timezone: selectedAirport.timezone,
-                gmt: selectedAirport.gmt,
-              }}
-              title="Zona Horaria"
-              icon={<WorldIcon />}
-            />
-            <AirportDetailCard
-              airport={{
-                timezone: selectedAirport.timezone,
-                gmt: selectedAirport.gmt,
-              }}
-              showTime={true}
-              title="Hora Local"
-              icon={<ClockCircle />}
-            />
-          </div>
-        )}
+          {activeTab === "ubicacion" && (
+            <div className="mb-20 flex flex-col gap-10">
+              <AirportDetailCard
+                airport={{
+                  latitude: selectedAirport.latitude,
+                  longitude: selectedAirport.longitude,
+                  geoname_id: selectedAirport.geoname_id,
+                }}
+                title="Ubicación"
+                icon={<MapPoint />}
+              />
+              <Map
+                lat={Number(selectedAirport.latitude)}
+                lng={Number(selectedAirport.longitude)}
+              />
+            </div>
+          )}
+
+          {activeTab === "zona-horaria" && (
+            <div className="flex flex-col gap-10">
+              <AirportDetailCard
+                airport={{
+                  timezone: selectedAirport.timezone,
+                  gmt: selectedAirport.gmt,
+                }}
+                title="Zona Horaria"
+                icon={<WorldIcon />}
+              />
+              <AirportDetailCard
+                airport={{
+                  timezone: selectedAirport.timezone,
+                  gmt: selectedAirport.gmt,
+                }}
+                showTime={true}
+                title="Hora Local"
+                icon={<ClockCircle />}
+              />
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
